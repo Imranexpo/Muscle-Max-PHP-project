@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .tex{
+background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);
+background-clip: text;
+color: transparent;
+font-weight: bolder;
+font-size: 24px;
+
+}
+/* why us section */
+.why{
+    background-image: url(../img/us-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+.hea{
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);
+    background-clip: text;
+    color: transparent;
+    font-style: normal;
+    position: relative;
+}
+.hea::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: auto;
+    width: 6.5%;
+    height: 7px;
+    border-radius: 5px;
+    background-color: #ff7200;
+    justify-content: center ;
+
+}
+.rd1{
+    width: 400px;
+    height: 350px;
+    margin-top: 5%;
+}
+#cr1{
+    border: 0px solid ;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 10px;
+}
+.u1{
+    margin-left: 100px;
+    top: 5%;
+    position: absolute;
+}
+.whyhea{
+    color: #ffffff;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+.first, .third{
+    margin-top:20px;
+}
+.para{
+    color: #f2f2f2;
+    font-size: 15px;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+}
+.cd1{
+    transition: transform 0.2s ease-out;
+   }
+.cd1:hover {
+    transform: scale(1.1);
+   }
+   @media only screen and (max-width: 1000px) {
+    .crd{
+      flex-direction: column;
+      align-items: center;
+
+      
+    }
+    .why{
+    background-image: url(../img/us-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height:280vh;
+    }
+    .u1{
+      margin-left: 8em;
+    }
+    .nut{
+      margin-right: 1em;
+    }
+   }
+   /* end of why section */
+</style>
+</head>
+<body>
+     <!-- header section -->
+     <div class="sticky-top">
+        <div class="container-fluid bg-dark sticky-top navwh">   
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+   
+       <a href="#" class="navbar-brand thead" ><b class="tex">MUSCLE MAX</b></a>
+       <button type="button" class="navbar-toggler btn " data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+           <span class="navbar-toggler-icon" ></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+           <div class="navbar-nav na mx-3 p-1 gap-4">
+             <a  href="index.html" class="nav-item nav-link navhead "><b>HOME</b></a>
+             <a  href="why us.html" class="nav-item nav-link navhead "><b>WHY US</b></a>
+             <a  href="trainer.html" class="nav-item nav-link navhead "><b>TRAINER</b></a>
+             <a  href="gallery.html" class="nav-item nav-link navhead "><b>GALLERY</b></a>
+             <a  href="contact.html" class="nav-item nav-link navhead "><b>CONTACT</b></a>
+           </div>
+         <div  class="navbar-nav ms-auto gap-2">
+           <a href="login.html" class="nav-item nav-link navhead"><b>LOGIN</b></a>
+           <a href="Register.html" class="nav-item nav-link navhead"><b>REGISTER</b></a>
+         </div>
+       </div>
+   </nav>
+
+
+ </div>
+    <!-- end header section -->
+    <!-- why us section -->
+  <div class="why">
+    <div>
+        <h1 class="fw-bold d-flex hea">WHY CHOOSE US</h1>
+    </div>
+    <div class="container d-flex d-gap gap-3 crd">
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-1.png" width="25%" class="u1 first" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title">QUALITY EQUPIMENT</h4>
+      <p class="para card-text">&emsp;We pride ourselves on providing top-notch equipment that caters to all your
+        fitness needs. Our state-of-the-art gym is designed to inspire and empower 
+        you on your quest for a healthier, stronger you.</p>
+    </div>
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-2.png" width="25%" class="u1" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title">HEALTHY DIET PLAN</h4>
+      <p class="para card-text">&emsp;We believe that true wellness begins with what you eat, and 
+        our expert nutritionists are here to guide you every step of the way.
+        A healthy diet plan is not just about calories, but also nutrients, variety, and balance.</p>
+
+    </div>
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-3.png" width="25%" class="u1 third" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title">SPORTS TIME</h4>
+      <p class="para card-text">&emsp;The ultimate destination for sport-specific training that takes your 
+        performance to new heights.These centers offer the latest in cardiovascular and strength training equipment, certified trainers.</p>
+    </div>
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-4.png" width="25%" class="u1" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title nut">NUTRITION</h4>
+      <p class="para card-text">&emsp;We understand that true fitness goes hand-in-hand with proper nutrition. 
+        Elevate your health and performance with our curated selection of high-quality, 
+        delicious, and nutritionally dense products.</p>
+    </div>
+    </div>
+  </div>
+    <!-- end why us section -->
+    
+</body>
+</html>

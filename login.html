@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="CSS/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body{
+            display: grid;
+            width: 100%;
+            place-items: center;
+            background: #0d0d0d;
+        
+        }
+        .error-icon {
+            color: red;
+        }
+        .success-icon {
+            color: green;
+        }
+      .field .frequire{
+            float: right;
+            margin-top: 2px;
+            padding: 3px;
+            color: #0d0d0d;
+  }
+  .circle-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px; /* Adjust size as needed */
+      height: 20px; /* Adjust size as needed */
+      border-radius: 50%;
+      background-color: #0d0d0d; /* Adjust background color as needed */
+    }
+    .field .fas{
+        float: right;
+    }
+    .field .error{
+        margin-right: 5px;
+    }
+    </style>
+</head>
+<body>
+        <!-- header section -->
+        <div class="container-fluid bg-dark sticky-top">   
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+       
+           <a href="#" class="navbar-brand" ><b class="tex">MUSCLE MAX</b></a>
+           <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+               <span class="navbar-toggler-icon" ></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarCollapse">
+               <div class="navbar-nav mx-3 p-1 gap-4 ">
+                  <a  href="index.html" class="nav-item nav-link navhead "><b>HOME</b></a>
+                  <a  href="why us.html" class="nav-item nav-link navhead "><b>WHY US</b></a>
+                  <a  href="trainer.html" class="nav-item nav-link navhead "><b>TRAINER</b></a>
+                  <a  href="gallery.html" class="nav-item nav-link navhead "><b>GALLERY</b></a>
+                  <a  href="contact.html" class="nav-item nav-link navhead "><b>CONTACT</b></a>
+               </div>
+             <div  class="navbar-nav ms-auto">
+               <a href="login.html" class="nav-item nav-link navhead"><b>LOGIN</b></a>
+               <a href="Register.html" class="nav-item nav-link navhead"><b>REGISTER</b></a>
+             </div>
+           </div>
+       </nav>
+    
+    
+     </div>
+        <!-- end header section -->
+   <!-- login form section -->
+   <div class="wrapper" >
+    <div class="title-text">
+        <div class="title login">login form</div>
+        <div class="title signup">signup form</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">login</label>
+            <label for="signup" class="slide signup">signup</label>
+            <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+            <!-- login section -->
+            <form action="login.php" method="post" class="login" id="loginForm" onsubmit="return loginvalidateForm()">
+                <div class="field">
+                    <input type="email" id="Emailname" name="Emailname" class="inside" placeholder="Email Address" id="EmailnameIcon" class="fas">
+                    <div class="frequire">
+                    <i id="EmailnameIcon" class="fas"></i>
+                    <span id="EmailnameError" class="error"></span>
+                </div>
+                </div>
+                <div class="field">
+                    <input type="password" id="Password" name="Password" class="inside" placeholder="password">
+                    <div class="frequire">
+                    <i id="PasswordIcon" class="fas"></i>
+                    <span id="PasswordError" class="error"></span>
+                    </div>
+                </div><br>
+                <div class="pass-link ">
+                    <a href="#">Forget Password</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="login">
+                </div>
+                <div class="signup-link">
+                    Not a member?<a href="#">signup now</a>
+                </div>
+            </form>
+            <!-- end of login section -->
+            <form action="signup.php" method="post" class="signup" id="signupForm" onsubmit="return signupvalidateForm()">
+                <div class="field">
+                    <input type="email" id="SEmailname" name="Emailname" class="inside"placeholder="Email Address">
+                    <div class="frequire">
+                        <i id="SEmailnameIcon" class="fas"></i>
+                        <span id="SEmailnameError" class="error"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="password" id="SPassword" name="Password" class="inside" placeholder="password">
+                    <div class="frequire">
+                        <i id="SPasswordIcon" class="fas"></i>
+                        <span id="SPasswordError" class="error"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="password" id="SCPassword" name="ConfirmPassword" class="inside" placeholder="Confirm Password">
+                    <div class="frequire">
+                        <i id="SCPasswordIcon" class="fas"></i>
+                        <span id="SCPasswordError" class="error"></span>
+                     </div>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="signup">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <script src="login/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muscle Max Gym</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .top1 {
+            text-align: center;
+            color: black;
+        }
+
+        .navhead {
+            color: azure;
+        }
+
+        .tex {
+            background: linear-gradient(to left, #85ebeb 0%, #ff7200 100%);
+            background-clip: text;
+            color: transparent;
+            font-weight: bolder;
+            font-size: 24px;
+        }
+
+        .main {
+            background-color: #212121;
+            padding: 30px;
+        }
+
+        .hea {
+            text-align: center;
+            font-size: 2.25em;
+            font-weight: 600;
+            padding: 15px;
+            color: #ff7200;
+        }
+
+        .container-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .rd1 {
+            width: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #2b2b2b;
+            color: #eceff1;
+            border: 1px solid #ff7200;
+            border-radius: 15px;
+        }
+
+        .card-heading {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .card-price {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .card-list {
+            font-size: 16px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-list li::before {
+            content: url("icons/check-lg.svg");
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .cta-btn {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            background-color: #0d0d0d;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            
+        }
+        .cta-btn:hover{
+            background-color: #ff7200;
+            color: #0d0d0d;
+        }
+
+        .crd4 {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #2b2b2b;
+            color: #eceff1;
+            border: 1px solid #ff7200;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+
+        @media only screen and (max-width: 767px) {
+            .rd1 {
+                width: 100%;
+            }
+        
+        }
+        /* contactus section */
+        .titlepage{
+            text-align: center;
+            padding: 10px;
+            text-transform: uppercase; 
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #0d0d0d;
+        }
+        .contact{
+            background:#ff7200 ;
+            padding-bottom: 40px;
+            padding-top: 22px;
+        }
+        .main-form{
+            max-width: 554px;
+            width: 100%;
+            float: left;
+        }
+        .mapimg figure{
+            margin: 0;
+        }
+        .mapimg figure img{
+            width: 100%;
+        }
+        label{
+            color: #0d0d0d;
+            font-size: 17px;
+            margin-bottom: 20px;
+            line-height: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .main-form .contactus{
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 50%;
+            background: #0d0d0d;
+            color: #fff;
+            font-size: 17px;
+            font-weight: normal;
+            border: inherit;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .main-form textarea{
+            margin-bottom: 20px;
+            width: 100%;
+            background: #0d0d0d;
+            border-radius: 10px;
+            color: #fff;
+            border: inherit;
+            font-size: 17px;
+            font-weight: normal;
+            padding: 12px 15px 10px 15px;
+            height: 155px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        .main-form .sent-btn {
+            font-size: 18px;
+            background-color: #0d0d0d;
+            text-transform: uppercase;
+            color: #fff;
+            max-width: 193px;
+            width: 100%;
+            display: block;
+            margin-top: 10px !important;
+            font-weight: bold;
+            height: 53px;
+            border: inherit;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            float: right;
+            padding: 11px 0;
+       }
+       .main-form .sent-btn:hover{
+        background-color: #2b2b2b;
+        color: #ff7200;
+       }
+        /* end of contact section */
+/** footer section **/
+.foothea{
+    background: linear-gradient(to left, #85ebeb 0%, #ff7200 100%);
+            background-clip: text;
+            color: transparent;
+            font-weight: bolder;
+            font-size: 30px;
+            margin-right: 2em;
+}
+
+.footpara{
+    color: #bebbbb;
+}
+
+.footer {
+     background: #021626;
+     text-align: center;
+     
+}
+
+.border_bo1 {
+     border-top: #ff7200 solid 1px;
+     padding-top: 80px;
+} 
+
+.logof {
+     text-align: left;
+     display: block;
+}
+
+
+.form_subscri {
+     margin-right: 31px;
+} 
+
+.infoma {
+     margin-top: 50px;
+     display: block;
+}
+
+.infoma h3 {
+     text-align: left;
+     font-weight: bold;
+     font-size: 17px;
+     line-height: 24px;
+     color: #fff;
+     padding-bottom: 10px;
+}
+ h3{
+    content:"";
+     font-size: 18px;
+     text-align: center;
+     border-bottom: #ff7200 solid 2px;
+     width: 8em;
+     border-radius: 3px;
+    
+    
+}
+.infoma ul li {
+     color: #bebbbb;
+     font-size: 14px;
+     text-align: left;
+     line-height: 35px;
+}
+
+ul.conta {
+     padding-top: 12px;
+}
+
+ul.conta li {
+     color: #bebbbb;
+     text-align: left;
+     padding-bottom: 15px;
+     font-size: 14px;
+     line-height: 18px;
+     display: flex;
+     align-items: center;
+    
+}
+
+ul.conta li:last-child {
+     padding-right: 0;
+}
+
+ul.conta li i {
+     padding-right: 15px;
+     text-align: center;
+     font-size: 21px;
+     color: #bebbbb;
+}
+
+ul.conta li a {
+     color: #bebbbb;
+}
+
+ul.social_icon {
+     float: left;
+     padding-top: 13px;
+     
+}
+
+ul.social_icon li {
+     display: inline-block;
+     margin: 0 2px;
+}
+
+ul.social_icon li a img {
+     background: #bebbbb;
+     width: 30px;
+     height: 30px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 23px;
+     border-radius: 10px;
+     border: #ff7200 solid 2px;
+     transition: ease-in all 0.5s;
+     text-decoration: none;
+     list-style: none;
+}
+@media screen and (max-width:1000px){
+    ul.social_icon li a img{
+        margin-left: 340%;
+    }
+}
+
+ul.social_icon li a img:hover {
+     color: #fff;
+     background: #ff7200;
+     transition: ease-in all 0.1s;
+}
+
+.copyright {
+     margin-top: 70px;
+     padding-bottom: 20px;
+     border-right: inherit;
+     border-left: inherit;
+}
+
+.copyright p {
+     color: #fff;
+     font-size: 18px;
+     line-height: 22px;
+     text-align: center;
+     padding-top: 25px;
+     border-top: #ff7200 solid 2px;
+     font-weight: normal;
+}
+
+.copyright a {
+     color: #fff;
+}
+
+.copyright a:hover {
+     color: #ff7200;
+}
+
+
+/** end footer **/
+
+
+    </style>
+</head>
+<body>
+    <!-- nav section -->
+    <div class="sticky-top">
+        <div class="container-fluid bg-dark sticky-top">   
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+                <a href="#" class="navbar-brand thead"><b class="tex">MUSCLE MAX
+
+                </b></a>
+                <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav na mx-3 p-1 gap-4">
+                        <a href="index.html" class="nav-item nav-link navhead"><b>HOME</b></a>
+                        <a href="why us.html" class="nav-item nav-link navhead"><b>WHY US</b></a>
+                        <a href="trainer.html" class="nav-item nav-link navhead"><b>TRAINER</b></a>
+                        <a href="gallery.html" class="nav-item nav-link navhead"><b>GALLERY</b></a>
+                        <a href="contact.html" class="nav-item nav-link navhead"><b>CONTACT</b></a>
+                    </div>
+                    <div class="navbar-nav ms-auto gap-2">
+                        <a href="login.html" class="nav-item nav-link navhead"><b>LOGIN</b></a>
+                        <a href="Register.html" class="nav-item nav-link navhead"><b>REGISTER</b></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- end of nav section -->
+<!-- main section -->
+    <main class="main">
+        <div><h1 class="fw-bold hea">GYM PACKAGE</h1></div>
+        <div class="container container-flex gap-3">
+            <div class="card card-body rd1">
+                <h2 class="card-heading">Quaterly</h2>
+                <p class="card-price">Rs2500/-</p>
+                <ul role="list" class="card-list">
+                    <li>3 Months Duration.</li>
+                    <li>Free Diet Plan.</li>
+                    <li>Free Yoga Class.</li>
+                </ul>
+                <a href="" class="cta-btn" style="text-decoration: none;">JOIN NOW</a>
+            </div>
+            <div class="card card-body rd1">
+                <h2 class="card-heading">Half Yearly</h2>
+                <p class="card-price">Rs4500/-</p>
+                <ul role="list" class="card-list">
+                    <li>6 Months Duration.</li>
+                    <li>Gym+Cardio.</li>
+                    <li>A/c With Hydraulic.</li>
+                </ul>
+                <a href="" class="cta-btn " style="text-decoration: none;">JOIN NOW</a>
+            </div>
+            <div class="card card-body rd1">
+                <h2 class="card-heading">One Year Single</h2>
+                <p class="card-price">Rs8000/-</p>
+                <ul role="list" class="card-list">
+                    <li>12 Months Duration.</li>
+                    <li>A/c With Hydraulic.</li>
+                    <li>One Protein Supplement Free</li>
+                </ul>
+                <a href="" class="cta-btn" style="text-decoration: none;">JOIN NOW</a>
+            </div>
+        </div>
+        <div class="card  crd4">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="img/package-bg.jpg" class="img-fluid rounded-start mt-2" alt="...">
+                    <a href="" class="cta-btn mt-3" style="text-decoration: none;">JOIN NOW</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-weight: bolder;">MUSCLE MAX</h5>
+                        <p class="card-text">
+                            <ul role="list" class="card-list">
+                                <li>Admission Fee(One Time) - Rs:700.00/-</li>
+                                <li>Per Month Fee&emsp;&emsp;&emsp;&emsp;&emsp; - Rs:1000.00/-</li>
+                            </ul>
+                        </p>
+                        <ul style="list-style: none;">
+                            <li><span style="font-weight: bold;">TIMING:</span> Morn: 5.00 To Night: 10.00(ED)</li>
+                        </ul>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- end of main section -->
+    <!-- contact section -->
+    <div class="contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage mb-2">
+                        <h2>Contact US</h2>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="mapimg">
+                        <figure><img src="img/contact rg-bg.jpg" alt=""></figure>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <form action="" id="request" class="main-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Name</label> 
+                                <input type="text" class="contactus" placeholder="" name="name">
+
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Phone No</label>
+                                <input type="tel" class="contactus" placeholder="" name="phone number">
+
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Email</label>
+                                <input type="email" class="contactus" placeholder="" name="email">
+
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Message</label>
+                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="sent-btn">Send</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- end of contact section-->
+    <!-- footer section -->
+    
+    <footer>
+        <div class="footer">
+           <div class="container">
+              <div class="row border_bo1 ">
+                 <div class="col-md-4">
+                    <h2 class="foothea">MUSCLE MAX</h2> 
+                    <form class="form_subscri">
+                       <div class="row">
+                          <div class="col-md-12 footpara">
+                             <p>Take the first step towards a healthier, stronger you 
+                                with our unbeatable pricing plans let's sweat, achieve and 
+                                conquer together!
+                            </p>
+                          </div>
+                          <div class="col-md-12">
+                            <ul class="social_icon">
+                                <li><a href="Javascript:void(0)"><img src="icons/facebook.svg" alt=""></a></li>
+                                <li><a href="Javascript:void(0)"><img src="icons/instagram.svg" alt=""></a></li>
+                                <li><a href="Javascript:void(0)"><img src="icons/twitter.svg" alt=""></a></li>
+                                <li><a href="Javascript:void(0)"><img src="icons/youtube.svg" alt=""></a></li>
+                                <li><a href="Javascript:void(0)"><img src="icons/chat-dots-fill.svg" alt=""></a></li>
+                             </ul>
+                            
+                          </div>
+                          
+                       </div>
+                    </form>
+                 </div>
+                 <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="infoma">
+                       <h3 class="bf">Company</h3>
+                       <ul style="list-style: none;">
+                          <li>Business </li>
+                          <li>Supplement Shop</li>
+                          <li>Partnership</li>
+                          <li>Equpiment Shop</li>
+                          <li>Yoga Class</li>
+                          <li>Protein Diet foods</li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-lg-2 col-md-4 col-sm-6 ">
+                    <div class="infoma">
+                       <h3 class="bf">Our Branches</h3>
+                       <ul style="list-style: none;">
+                          <li>Chennai</li>
+                          <li>Vellore</li>
+                          <li>Cuddalore</li>
+                          <li>Madurai</li>
+                          <li>Pondicherry</li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="infoma">
+                       <h3 class="before">Menu</h3>
+                       <ul style="list-style: none;">
+                          <li>Home</li>
+                          <li>Why Us</li>
+                          <li>Trainer</li>
+                          <li>Gallery</li>
+                          <li>Contact</li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-lg-2 col-md-4 col-sm-6 ">
+                    <div class="infoma">
+                       <h3 class="before">Contact Us</h3>
+                       <ul class="conta">
+                          <li><i class="fa fa-map-marker" aria-hidden="true"></i>Locations 
+                          </li>
+                          <li><i class="fa fa-phone" aria-hidden="true"></i>+91 6383026412</li>
+                          <li> <i class="fa fa-envelope" aria-hidden="true" ></i><a href="Javascript:void(0)" style="text-decoration: none;">Muscle Max@gmail.com</a></li>
+                       </ul>
+                      
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="copyright">
+              <div class="container">
+                 <div class="row">
+                    <div class="col-md-12">
+                       <p>© 2024 All Rights Reserved. <a href="https://html.design/" style="text-decoration: none;"> Free MuscleMax Templates</a></p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

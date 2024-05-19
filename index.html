@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/firststyle.css">
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+          .overlay{
+            background-color: black;
+            width: 100%;
+            height:100%;
+            position:absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0.8;
+            z-index: 1;
+            display: none;
+        }
+        .close-btn{
+    position: relative;
+    float: right;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    font-size: 1.5em;
+    background: #0d0d0d;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+        .error-icon {
+            color: red;
+        }
+        .success-icon {
+            color: green;
+        }
+      .field .frequire{
+            float: right;
+            margin-top: 2px;
+            padding: 3px;
+            color: #0d0d0d;
+  }
+    </style>
+</head>
+<body>
+    
+    <!-- header section -->
+        <div class="sticky-top">
+        <div class="container-fluid bg-dark sticky-top">   
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+   
+       <a href="#" class="navbar-brand thead" ><b class="tex">MUSCLE MAX</b></a>
+       <button type="button" class="navbar-toggler btn " data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+           <span class="navbar-toggler-icon" ></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+           <div class="navbar-nav na mx-3 p-1 gap-4">
+             <a  href="index.html" class="nav-item nav-link navhead "><b>HOME</b></a>
+             <a  href="why us.html" class="nav-item nav-link navhead "><b>WHY US</b></a>
+             <a  href="trainer.html" class="nav-item nav-link navhead "><b>TRAINER</b></a>
+             <a  href="gallery.html" class="nav-item nav-link navhead "><b>GALLERY</b></a>
+             <a  href="contact.html" class="nav-item nav-link navhead "><b>CONTACT</b></a>
+           </div>
+         <div  class="navbar-nav ms-auto gap-2">
+           <button  class="nav-item nav-link navhead" onclick="show()">LOGIN</button>
+           <a href="Register.html" class="nav-item nav-link navhead"><b>REGISTER</b></a>
+         </div>
+       </div>
+   </nav>
+ </div>
+ <!-- end header section -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="overlay"></div>
+         <!-- login form section -->
+   <div class="wrapper" >
+    <button onclick="closepopup()" class="close-btn">&times;</button>
+    <div class="title-text">
+        <div class="title login">login form</div>
+        <div class="title signup">signup form</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">login</label>
+            <label for="signup" class="slide signup">signup</label>
+            <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+            <!-- login section -->
+            <form action="login.php" method="post" class="login" id="loginForm" onsubmit="return loginvalidateForm()">
+                <div class="field">
+                    <input type="email" id="Emailname" name="Emailname" class="inside" placeholder="Email Address" id="EmailnameIcon" class="fas">
+                    <div class="frequire">
+                    <i id="EmailnameIcon" class="fas"></i>
+                    <span id="EmailnameError" class="error"></span>
+                </div>
+                </div>
+                <div class="field">
+                    <input type="password" id="Password" name="Password" class="inside" placeholder="password">
+                    <div class="frequire">
+                    <i id="PasswordIcon" class="fas"></i>
+                    <span id="PasswordError" class="error"></span>
+                    </div>
+                </div><br>
+                <div class="pass-link ">
+                    <a href="#">Forget Password</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="login">
+                </div>
+                <div class="signup-link">
+                    Not a member?<a href="#">signup now</a>
+                </div>
+            </form>
+            <!-- end of login section -->
+            <form action="signup.php" method="post" class="signup" id="signupForm" onsubmit="return signupvalidateForm()">
+                <div class="field">
+                    <input type="email" id="SEmailname" name="Emailname" class="inside"placeholder="Email Address">
+                    <div class="frequire">
+                        <i id="SEmailnameIcon" class="fas"></i>
+                        <span id="SEmailnameError" class="error"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="password" id="SPassword" name="Password" class="inside" placeholder="password">
+                    <div class="frequire">
+                        <i id="SPasswordIcon" class="fas"></i>
+                        <span id="SPasswordError" class="error"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="password" id="SCPassword" name="ConfirmPassword" class="inside" placeholder="Confirm Password">
+                    <div class="frequire">
+                        <i id="SCPasswordIcon" class="fas"></i>
+                        <span id="SCPasswordError" class="error"></span>
+                     </div>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="signup">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="img/index.bg.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="img/index.bg2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/index.bg3.jpg" class="d-block w-100" alt="...">
+        </div>
+       <!-- content section -->
+    <div class="content">
+      <h1 class="h">Muscle Max&
+          <br><span>Fitness Center</span>
+          <br>you will earn your body muscles.</h1>
+          <p class="para">
+              dedicated spaces for cardio, strength training and 
+              flexibility exercises to accommodate various fitness preferences.
+              <br>
+              design private area for one-on-one training sessions with fitness professionals.
+           </p>
+           <button class="bn"><a href="#">JOIN US</a></button>
+  </div>
+      </div>
+      <!-- end content section -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-ico" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-ico" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- end of header section -->
+    
+    <!-- why us section -->
+  <div class="why">
+    <div>
+        <h1 class="fw-bold d-flex hea">WHY CHOOSE US</h1>
+    </div>
+    <div class="container d-flex d-gap gap-3 res">
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-1.png" width="25%" class="u1 first" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title">QUALITY EQUPIMENT</h4>
+      <p class="para card-text">&emsp;We pride ourselves on providing top-notch equipment that caters to all your
+        fitness needs. Our state-of-the-art gym is designed to inspire and empower 
+        you on your quest for a healthier, stronger you.</p>
+    </div>
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-2.png" width="25%" class="u1" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title">HEALTHY DIET PLAN</h4>
+      <p class="para card-text">&emsp;We believe that true wellness begins with what you eat, and 
+        our expert nutritionists are here to guide you every step of the way.
+        A healthy diet plan is not just about calories, but also nutrients, variety, and balance.</p>
+
+    </div>
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-3.png" width="25%" class="u1 third" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title">SPORTS TIME</h4>
+      <p class="para card-text">&emsp;The ultimate destination for sport-specific training that takes your 
+        performance to new heights.These centers offer the latest in cardiovascular and strength training equipment, certified trainers.</p>
+    </div>
+    <div class="card card-body rd1 cd1" id="cr1">
+      <img src="img/u-4.png" width="25%" class="u1" alt=""><br><br><br><br><br><br>
+      <h4 class="whyhea card-title nut">NUTRITION</h4>
+      <p class="para card-text">&emsp;We understand that true fitness goes hand-in-hand with proper nutrition. 
+        Elevate your health and performance with our curated selection of high-quality, 
+        delicious, and nutritionally dense products.</p>
+    </div>
+    </div>
+  </div>
+    <!-- end why us section -->
+    <!-- trainer section -->
+    <div class="train">
+      <div><h1 class="fw-bold  d-flex hea">TRAINER</h1></div>
+    <div class="container d-flex d-gap gap-3 tra retra">
+      <div class="w-25 p-3">
+        <img src="img/try-1 (1).jpg" class="img-thumbnail imres" style="border-radius: 5%; background-color: #ff7200;" alt="..."><br><br>
+        <h4 class="whyhea card-title respar">Kris Gethin</h4>
+        <p class="tpara card-text">&emsp;Kris Gethin is a lifetime, natural, drug-free athlete with
+           a background in International Health and Sports Therapy. His work has also appeared in
+           Muscle & Fitness, FLEX, Iron Man, Muscle Mag, Body Fitness, and other publications.</p>
+      </div>
+      <div class="w-25 p-3">
+        <img src="img/try-2.jpg" class="img-thumbnail imres" style="border-radius: 5%; background-color: #ff7200;"" alt="..."><br><br>
+        <h4 class="whyhea card-title respar">Samir Jaura</h4>
+        <p class="tpara card-text">&emsp;Certified Fitness trainer from International Sports Science Association (ISSA) USA Specialized 
+          in Sports Training. Certified as a Sports Nutritionist From International Fitness Association (IFA)
+           Orlando, USA) Trained the Girls of Femina Miss India 2002.</p>
+      </div>
+      <div class="w-25 p-3">
+        <img src="img/try-3.jpg" class="img-thumbnail imres" style="border-radius: 5%; background-color: #ff7200;"" alt="..."><br><br>
+        <h4 class="whyhea card-title respar">Prashant Sawant</h4>
+        <p class="tpara card-text">&emsp;A celebrity personal trainer, Prashant Sawant has been working in the fitness industry for 
+          more than 20 years & sculpting the bodies of many Bollywood Celebrities. He established a personal
+           training studio "Body Sculptor" in 2003.</p>
+      </div>
+      <div class="w-25 p-3">
+        <img src="img/try-4.jpg" class="img-thumbnail imres" style="border-radius: 5%; background-color: #ff7200;"" alt="..."><br><br>
+        <h4 class="whyhea card-title respar">Manish Advilkar</h4>
+        <p class="tpara card-text">&emsp;Manish Advilkar is a celebrity fitness trainer and bodybuilder with an experience of more than a 
+          decade in the fitness industry. He is the founder of the franchise Mass Supplements and has
+           brought a tremendous transformation in people's lives with distinguished workout regimes.</p>
+      </div>
+
+
+    </div>
+    </div>
+    <!-- end of trainer section -->
+    <!-- about us section-->
+    <div class="about">
+      <div class="card abcard container" id="boxback" >
+        <div class="hea2">
+          <h1>About Us</h1>
+        </div><br>
+        <div class="para2 ">
+          <p>&emsp; &emsp; &emsp;Welcome to Muscle Max, where fitness meets transformation! Our gym is more than just a place to work out - it's a community dedicated to helping you achieve your fitness goals. With experienced trainers, personalized workout plans, and state-of-the-art equipment, 
+            we're here to guide you every step of the way. Join Muscle Max and become a part of a supportive community committed to maximizing your strength, endurance, and overall well-being. Your journey to a healthier, stronger you starts here!</p>
+        </div>
+       
+      </div>
+
+    </div>
+    <!-- end about us section -->
+    <!-- Galllery section -->
+    <div class="gall">
+      <div>
+        <h1 class="fw-bold d-flex hea">GALLERY</h1>
+      </div><br><br>
+      <div class="container grt " style="margin-left: 6.5%; ">
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-1.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="">
+          </div>
+          <div class="image-overlay">
+            <p>Cardio Places</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-2.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Pull UP Bars</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-3.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Hydraulic Machines</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-4.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Trainer Support</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-5.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>BarBell Rods</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-6.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Dumbbells Section</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-7.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Yoga Classes</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-8.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Swimming Classes</p>
+          </div>
+        </div>
+        <div class="crd  colcr">
+          <div class="im">
+            <img src="img/g-9.jpg" class="img-thumbnail" style=" background: linear-gradient(to left, #85ebeb  0%, #ff7200 100%);" alt="...">
+          </div>
+          <div class="image-overlay">
+            <p>Boxing Classes</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end of Gallery section -->
+    <!-- Class Timetable Start -->
+    <div class="container-fluid p-5" style="background-color: #ff7200;">
+      <div class="mb-5 text-center">
+          <h5 class="fw-bold text-uppercase">Class Schedule</h5>
+          <h1 class="display-3 text-uppercase mb-0">Working Hours</h1>
+      </div>
+      <div class="tab-class text-center">
+          <ul class="nav nav-pills d-inline-flex justify-content-center text-uppercase rounded-pill mb-5" style="background-color: #0d0d0d;">
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white active" data-bs-toggle="pill" href="#tab-1">Monday</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-2">Tuesday</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-3">Wednesday</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-4">Thursday</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-5">Friday</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-6">Saturday</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-7">Sunday</a>
+              </li>
+          </ul>
+          <div class="tab-content">
+              <div id="tab-1" class="tab-pane fade show p-0 active">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">Weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-2" class="tab-pane fade p-0">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">Weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-3" class="tab-pane fade p-0">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">Samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-4" class="tab-pane fade p-0">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">Weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-5" class="tab-pane fade p-0">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">Weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-6" class="tab-pane fade p-0">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">Weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="tab-7" class="tab-pane fade p-0">
+                  <div class="row g-5">
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00am - 8.00am</h6>
+                              <h5 class="text-uppercase text-primary">cardio program</h5>
+                              <p class="text-uppercase text-secondary mb-0">kris gethin</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00am - 10.00am</h6>
+                              <h5 class="text-uppercase text-primary">weight training</h5>
+                              <p class="text-uppercase text-secondary mb-0">samir jawra</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">10.00am - 12.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Yoga class</h5>
+                              <p class="text-uppercase text-secondary mb-0">krishna kumar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">12.00pm - 2.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Weight Loosing</h5>
+                              <p class="text-uppercase text-secondary mb-0">mr.afsar</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class="rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">2.00pm - 4.00pm</h6>
+                              <h5 class="text-uppercase text-primary">diet plan Program</h5>
+                              <p class="text-uppercase text-secondary mb-0">prashant sawant</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">4.00pm - 6.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Swimming class</h5>
+                              <p class="text-uppercase text-secondary mb-0">irshath ad</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">6.00pm - 8.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle Building</h5>
+                              <p class="text-uppercase text-secondary mb-0">imran khan</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-6">
+                          <div class=" rounded text-center py-5 px-3 time" style="background-color: #0d0d0d;">
+                              <h6 class="text-uppercase text-light mb-3">8.00pm - 10.00pm</h6>
+                              <h5 class="text-uppercase text-primary">Muscle weight</h5>
+                              <p class="text-uppercase text-secondary mb-0">manish advilkar</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Class Timetable Start -->
+  
+    </div>
+    <script src="login/main.js.js"></script>
+      
+    
+</body>
+</html>
